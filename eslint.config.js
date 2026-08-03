@@ -37,7 +37,9 @@ export default defineConfig(
     ],
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ["*.config.ts"],
+        },
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -64,6 +66,12 @@ export default defineConfig(
     files: ["src/tools/**/*.ts"],
     rules: {
       "@typescript-eslint/naming-convention": ["error", ...snakeCaseAllowed],
+    },
+  },
+  {
+    files: ["*.config.ts"],
+    rules: {
+      "no-restricted-exports": "off",
     },
   },
   eslintConfigPrettier,
