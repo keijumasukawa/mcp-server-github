@@ -20,13 +20,13 @@ export const createGithubClient = ({
     throttle: {
       onRateLimit: (_retryAfter, options, octokit, retryCount) => {
         octokit.log.warn(
-          `Request quota exhausted for request ${options.method} ${options.url}`,
+          `一次レート制限に達しました: ${options.method} ${options.url}`,
         );
         return retryCount < MAX_RATE_LIMIT_RETRIES;
       },
       onSecondaryRateLimit: (_retryAfter, options, octokit) => {
         octokit.log.warn(
-          `SecondaryRateLimit detected for request ${options.method} ${options.url}`,
+          `二次レート制限を検知しました: ${options.method} ${options.url}`,
         );
       },
     },
