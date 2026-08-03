@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { createGithubClient } from "./client.js";
+import { createGithubClient } from "../src/github/client.js";
 
 describe("createGithubClient", () => {
   it("Search API のメソッドを備えたクライアントを生成する", () => {

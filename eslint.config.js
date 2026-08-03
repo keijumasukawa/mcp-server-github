@@ -39,7 +39,7 @@ export default defineConfig(
     extends: [js.configs.recommended],
   },
   {
-    files: ["**/*.ts"],
+    files: ["src/**/*.ts", "*.config.ts"],
     extends: [
       js.configs.recommended,
       tseslint.configs.strictTypeChecked,
@@ -100,6 +100,23 @@ export default defineConfig(
     files: ["*.config.ts"],
     rules: {
       "no-restricted-exports": "off",
+    },
+  },
+  {
+    files: ["__tests__/**/*.ts"],
+    extends: [js.configs.recommended, tseslint.configs.recommended],
+    rules: {
+      "@typescript-eslint/no-magic-numbers": "error",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          args: "all",
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+      "@typescript-eslint/naming-convention": ["error", ...namingConvention],
     },
   },
   eslintConfigPrettier,
