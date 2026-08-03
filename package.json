@@ -2,8 +2,11 @@
   "name": "mcp-server-github",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "bin": {
+    "mcp-server-github": ""
+  },
   "scripts": {
+    "build": "tsc",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
@@ -31,6 +34,7 @@
   },
   "packageManager": "pnpm@11.18.0",
   "dependencies": {
+    "@modelcontextprotocol/server": "^2.0.0",
     "@octokit/plugin-retry": "^8.1.1",
     "@octokit/plugin-throttling": "^11.0.5",
     "@octokit/request-error": "^7.1.1",
