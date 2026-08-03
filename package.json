@@ -17,13 +17,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.13.1",
-      "onFail": "download"
-    }
-  },
   "type": "module",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -35,5 +28,6 @@
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.65.0",
     "vitest": "^4.1.10"
-  }
+  },
+  "packageManager": "pnpm@11.18.0"
 }
