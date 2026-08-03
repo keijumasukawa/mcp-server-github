@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit"
   },
   "engines": {
@@ -22,6 +24,7 @@
   "type": "module",
   "devDependencies": {
     "@types/node": "^24.13.3",
+    "prettier": "^3.9.6",
     "typescript": "^6.0.3"
   }
 }
