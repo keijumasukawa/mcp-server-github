@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { createEnvTokenProvider } from "./token-provider.js";
+import { createEnvTokenProvider } from "../src/github/token-provider.js";
 
 describe("createEnvTokenProvider", () => {
   it("環境変数にトークンがあれば解決する", async () => {

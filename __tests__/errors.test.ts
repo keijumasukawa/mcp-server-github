@@ -1,7 +1,7 @@
 import { RequestError } from "@octokit/request-error";
 import { describe, expect, it } from "vitest";
 
-import { classifyGithubError } from "./errors.js";
+import { classifyGithubError } from "../src/github/errors.js";
 
 const HTTP_UNAUTHORIZED = 401;
 const HTTP_FORBIDDEN = 403;
