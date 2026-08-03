@@ -4,9 +4,13 @@ import { defineConfig, globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 const namingConvention = [
-  { selector: "default", format: ["camelCase"] },
+  { selector: "default", format: ["camelCase"], leadingUnderscore: "allow" },
   { selector: "import", format: null },
   { selector: "variable", format: ["camelCase", "UPPER_CASE"] },
+  {
+    selector: ["objectLiteralProperty", "typeProperty"],
+    format: ["camelCase", "UPPER_CASE"],
+  },
   { selector: "typeLike", format: ["PascalCase"] },
   { selector: "enumMember", format: ["UPPER_CASE"] },
   {
@@ -15,6 +19,12 @@ const namingConvention = [
     format: null,
   },
 ];
+
+const pascalCaseVariableAllowed = namingConvention.map((entry) =>
+  entry.selector === "variable"
+    ? { ...entry, format: [...entry.format, "PascalCase"] }
+    : entry,
+);
 
 const snakeCaseAllowed = namingConvention.map((entry) =>
   entry.format === null
@@ -59,7 +69,25 @@ export default defineConfig(
       "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
       "@typescript-eslint/switch-exhaustiveness-check": "error",
       "@typescript-eslint/no-magic-numbers": "error",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          args: "all",
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
       "@typescript-eslint/naming-convention": ["error", ...namingConvention],
+    },
+  },
+  {
+    files: ["src/github/client.ts"],
+    rules: {
+      "@typescript-eslint/naming-convention": [
+        "error",
+        ...pascalCaseVariableAllowed,
+      ],
     },
   },
   {
