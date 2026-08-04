@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 import { serveStdio } from "@modelcontextprotocol/server/stdio";
 
+import { loadEnvFileIfExists, resolveProjectEnvFilePath } from "./env-file.js";
 import { createGithubClient } from "./github/client.js";
 import { createEnvTokenProvider } from "./github/token-provider.js";
 import { createServer } from "./server.js";
 
 try {
+  loadEnvFileIfExists(resolveProjectEnvFilePath(import.meta.url));
   const token = await createEnvTokenProvider(process.env).resolve();
   const client = createGithubClient({ token });
   serveStdio(() => createServer({ client }));
