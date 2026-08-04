@@ -4,6 +4,7 @@ import type { GithubClient } from "../github/client.js";
 import { createSearchCommitsTool } from "./search-commits.js";
 import { createSearchIssuesTool } from "./search-issues.js";
 import { createSearchRepositoriesTool } from "./search-repositories.js";
+import { createSearchUsersTool } from "./search-users.js";
 
 export const createSearchTools = (
   server: McpServer,
@@ -12,4 +13,5 @@ export const createSearchTools = (
   createSearchRepositoriesTool(server, client);
   createSearchCommitsTool(server, client);
   createSearchIssuesTool(server, client);
+  createSearchUsersTool(server, client);
 };
