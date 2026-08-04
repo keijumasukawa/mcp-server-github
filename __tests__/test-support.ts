@@ -6,6 +6,7 @@ import type { GithubClient } from "../src/github/client.js";
 const REQUEST_URL = "https://api.github.com/search";
 
 export const HTTP_FORBIDDEN = 403;
+export const HTTP_NOT_FOUND = 404;
 export const HTTP_UNPROCESSABLE_ENTITY = 422;
 
 export const RATE_LIMIT_HEADERS = {
