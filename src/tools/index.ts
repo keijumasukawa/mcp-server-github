@@ -1,6 +1,7 @@
 import type { McpServer } from "@modelcontextprotocol/server";
 
 import type { GithubClient } from "../github/client.js";
+import { createSearchCodeTool } from "./search-code.js";
 import { createSearchCommitsTool } from "./search-commits.js";
 import { createSearchIssuesTool } from "./search-issues.js";
 import { createSearchRepositoriesTool } from "./search-repositories.js";
@@ -14,4 +15,5 @@ export const createSearchTools = (
   createSearchCommitsTool(server, client);
   createSearchIssuesTool(server, client);
   createSearchUsersTool(server, client);
+  createSearchCodeTool(server, client);
 };
