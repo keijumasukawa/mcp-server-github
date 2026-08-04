@@ -6,6 +6,7 @@ import { createSearchCommitsTool } from "./search-commits.js";
 import { createSearchIssuesTool } from "./search-issues.js";
 import { createSearchLabelsTool } from "./search-labels.js";
 import { createSearchRepositoriesTool } from "./search-repositories.js";
+import { createSearchTopicsTool } from "./search-topics.js";
 import { createSearchUsersTool } from "./search-users.js";
 
 export const createSearchTools = (
@@ -18,4 +19,5 @@ export const createSearchTools = (
   createSearchUsersTool(server, client);
   createSearchCodeTool(server, client);
   createSearchLabelsTool(server, client);
+  createSearchTopicsTool(server, client);
 };
