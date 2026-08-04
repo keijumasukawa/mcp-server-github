@@ -68,7 +68,10 @@ export default defineConfig(
       ],
       "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
       "@typescript-eslint/switch-exhaustiveness-check": "error",
-      "@typescript-eslint/no-magic-numbers": "error",
+      "@typescript-eslint/no-magic-numbers": [
+        "error",
+        { ignoreArrayIndexes: true },
+      ],
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
@@ -106,7 +109,10 @@ export default defineConfig(
     files: ["__tests__/**/*.ts"],
     extends: [js.configs.recommended, tseslint.configs.recommended],
     rules: {
-      "@typescript-eslint/no-magic-numbers": "error",
+      "@typescript-eslint/no-magic-numbers": [
+        "error",
+        { ignoreArrayIndexes: true },
+      ],
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
@@ -116,7 +122,7 @@ export default defineConfig(
           caughtErrorsIgnorePattern: "^_",
         },
       ],
-      "@typescript-eslint/naming-convention": ["error", ...namingConvention],
+      "@typescript-eslint/naming-convention": ["error", ...snakeCaseAllowed],
     },
   },
   eslintConfigPrettier,
